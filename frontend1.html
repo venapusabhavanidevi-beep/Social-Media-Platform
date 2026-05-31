@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mini Social Media App</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .profile {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .profile img {
+            border-radius: 50%;
+        }
+
+        .post-box {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .post {
+            background: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .actions button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Mini Social Media App</h1>
+
+        <!-- User Profile -->
+        <div class="profile">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBAQEhAQFhAVEBAVFRUWEBAVFRcVFRUWFhUVGBYYHSggGBolGxYVITEiJSkrMC4uFx8zODMsNyguLisBCgoKDg0OGhAQGislHyUtLS8tMS8tLSsvLS8tLS0tLS0tLS0rLS0tLS8tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABQYDBAcCAQj/xABEEAABAwEEBwMJBQcCBwAAAAABAAIDEQQSITEFBkFRYXGBEyKRBzJCUoKSobHBI2Jy0fAUQ1NjsuHxM9Ikc4OTorPC/8QAGQEBAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAJBEAAgICAgMAAQUAAAAAAAAAAAECEQMhEjEEQVEyEyIjYXH/2gAMAwEAAhEDEQA/AOTIiKREIiIAiIgCIiAIiy2azvke1jGuc9xoGgVJ/QxrsAJQGJZIoXPN1rXOduaCT4DFWqxavQxAOnc179rA43G8y0gvPtNG4vCkYtIxgXImFw9Vga2Ov4WXWV51Vix/dHL+FWi1ctbqfYltfXfHGfde4H4LdZqdaj/D953zDSrNE60OyDI28vo2g+a22WdwxdM7nSMDxpVRdInGNlTGo9sP8D35P9i17bqdbYxe7K8PuODj7po49AVfYmR/xgfbb+ZWdsRGLJCPwkOHgPyUb/olw/s469hBIIIIwIIIIO4jYvK6xpKzQ2kCO1xiuTJ2UBaedMOWW8Kj6yap2ixUe6j4HEXZWZY4APbmw88CciV3/CDVFfRfSF8XDgREQBERAEREAREQBERAEREAREQBERAERbFhsb5nhjAKmpJJo1rQKue47GgYkoDzZrOZHXRQbya0A3n9Yqw2CTswYrO2pIpJIcC7bQkea3LuDhUmlVjgsjXUjjqIgcXUo95yJps2j7owFTUmes0bI2hrQMNmwfmtMMVK2VSnuka1n0Re70ri7n5vRu3rVS8LGtoGinHb03LW7XqVngY52OQ2/wCVyT+aJxX3ZmxO3wxPicAs0NmbmQObu8fE/RR89uDTcjbef0AA3n1R8ea15LQ2oEr3ud/DjBLj1zHPDkskskV0rNMYt9uiyRTxj99H77foFs1ifheY48HCo5EUIVajcSKjRraes97ST1Llgtpja2slkmib68Uge1vEtqWgcSuLJk9xO8I/Sw2xhaCT34/S3gfeHpN45jPELLoG0MIlsU110LmF0d/EXXd1zHb2g4HgQcwCKxZdLPgLXCXtYCQL+Ic0nIOBxB+G6mFcWs9rbcb2ZxdgANzm4gU2eYadNivhJNFM00aLtVYpZJOxtUfZXvswQ5z6UxY/KhaatrjW7XaoLS+h5rM4CRuB817TVjvwu38DQ8FctB2aVrRhMAPV7LDmwnEeJU3M5jmGOYNkifg6oIB57WOBxrmMwcCFOcEiuLbORUXxWbWLVZ9nvSxkyWbGrqC/HTNsoGVPWGB4ZKtuaqmmuyR5REXAEREAREQBERAEREAREQBERAemNJIABJJoABUknIAbSrKLKYWdg3zn3XTPr51MWxtplG0419Jwr5oYRr6q2SrnzkVEeDAcjI7LwGO/KmIW5aZQCcauJJPE/r9ZK7FC/wBz6ITl6RlhIaKDx+gWzAS7AKOh72JNG/rAcVuwzjIYNU55Ets5CDekStlgB293ad68Wi0ulqyPuxt85/0G8rRntbnkRtNBtp+s1lltYZF3R3W0DQPTecB8fqdyxTyub30bIwUeuzwWgO7Jld7ztJ2Cv6+IpktOkI7M2jQC87gM/rz+Wa0YZbjS6tXOr3v6nDoQBuvcFEvfeded0HDdTbyyUZyo7FWb7tI2ycksLgODntPUsx8SVqy2i2MNS6TpLIT7pOPgVsQ6RDQAIbx3vc/4BpCx2m3RyYPguO2PY5/TzifmFUpOyzgacVsAN6gAd3ZABRrmuwvUyBru20IpipHVqITygyYhoo0EA+1QihUTPZyepFSBgfvc/wAladAQCNgcfQIrs7hr3uAGfsvotOF75fCjLGv2lo7ER0LKNAGIGX4gNnEbV9ljbI01GYoRxH1GxJ30p4eOX64LXbJddd9al0nK8PNrzGHRW/qpvfRW8dLRr2W0PZxe3uvb67R5rhxu05qvay6vscx1pswAABc+MCgujEvYNlPSbszGGAsGkx5szQaGocBmCMxTeMcNveG5atmtt1we0iuDq5tO29TbxG0V62TpqiCObFfFI6w2VsVplawERkh7BuZI0PDa7bt67X7qjlQSCIiHAiIgCIiAIiIAiIgCIpDQUbTO17xWOIOmeN4jF4N9p9xntodJmeb9liZZmj7W6HSnc5wrd6AgdDvKixOM8/r/AGWC0yve58kh7z3FziciSakcuC1zaa1u48Tl0CuukV1skTaNrjQbB9AP1xWYWogV27Bu4nj8lExmneJqVu2MFzmjbWp4f4FT1WfJtl0NEvZ20bifxHfvHL/Gxa09rL3Vyawdwfed3Q7mASeik3w1ja0DF5oBua36k08DvUa6EG0CLYJTeO4RtFT8X+Cpi05X8NEotRJLRGjHWlzmg0Y2jSeuI5k18FcLBqvZm0qy8d7ifosOqVkuQNdShkJfTcDkPD5qzwNWDLNzm96NmOPCCNez6Fs7coY/dH1W27RULqVjb0FPktqNqzhqKFkXNlQ1x0ZG2BoawDvHIbx/ZVrRRAYCcq3XDeCaU6m6OV7eug6w2a/A4bRj4f2XNoHXJHRHJ9ac9w4nLqtWN1GiuavbJdshMd0mrm1YTvukgHmaV9pa7pr8Zx7zSQeYxr4Ud1WrZrSb1CcXAV/G2jCeobGeRWNst2Yt9GRv/kKkfC+Dyapxl6K2iTsM/askacy0u5PZS98MepVbtUxikw81zvdecajg7581JaJkuT3DkSR4Cn9Lvgom0gSXmuORoT90nB/TPmFfzbgUcakQunqi0PFSRSMtrsa5jXtHQOCj1Jaea4SMvij+xjvc2lzCOlynRRqkuip9hERdOBERAEREAREQBERAFKaDa09q13pNhB/D28RPxDFFrLZprj2uxwONN20eC4zqPtqa4veSMshnQEn5ALGAByVyt2gAbA+0txkD7OSBSps5jpHNSuDXOLuIOBxCqU0JaQML1BhWtK7Cd9M93RIybOyjRjbiVvWOW6eJ+S0+AXuy2gNdW7eIyrlXjvXJPVI7Fbtl90NEKdq/BjGF2OwAVUXoGwumkNQb8oq/+XFIS5xO5z6loG41UdNpx74+xd3Y3UvUqC4eryWzo/WKaDuxCMMrW6GA1O1zq94nmdiy8JJOjZzi2viOpWaMAAAYDAclvxBUjQuuQke2N7ACSBeBJrXhsIzPCvW6RyLI4OHZo5KS0b8S2GqMmtgjY55qQ1pNBmabBxVSl14nqQ1sQxGVXeNaePCuStg7K5Iv0kdQuZa56IdE++2tK1aRs4LK3Xe0A0dI33Gl1dgoBkvls1ofOxzXsa4cjuzwyxU1cXZFfCtutN+kgzr3hlR1KHoRQ8A2mxLdPeY2RvnNNeoofCoB5VWoRWUsZm/C6cA6uVOv6osXaFueRwcDsO8/EePBS9kX0S7ZA6SKVuRLD73dx4974KFstpDZTe/0+1kB/A5xvD6+Ky6PtF1kkZ9FzS3k5wp/USsMpayF77ovPkAbUeqGueae0PEK6CbtFMmlsx61zF1rlBbdMZMdDStQ5xccN7nOI4EKIWS0TOke57jVziSTxWNXIzsIiLpwIiIAiIgCIiAIiIAiIEBbNVrbPPH+wud/wjHGRzi4jsmki/TY6pODPWNagVK1da7LBZ3GOF5kJAN+7QNYctuLjyAGIxrh61bZWN4qRfljDqbmtcQPiVn07YR2d4bK7dlK/MBQ7bL+NQTInRWjzJHnm6hPDCtFMt7OEABo5AYrJoGH7I/jd+SzjQokmbfd9nmW5V58F1423SIqaStkZPpZlMWsplUkn4tBCwRTxP8AQYeIph9QtrW2ECUNa0UYxtxlBQA5kDaSaj2QvGrtgbapYmljWzGZjG3O7fYQ6+XNAwLQK3h1yUJ44x9lmPLKdOtG3Y4ow5rg2hBqCr7o61l4BVNn0e6GRzDm00P5q36sQVaFjzY3Vm3HJG/aBeaWmtCCFCWmwWdoxiaedT+irXarNQKPGjr7gDhU57QOHFYaly4ovUo1bKTatJWeF1OzszCDk4VPutBI6gKU0drKDQDs3A5XCQTya4NLugKpMs0tmne9jW33CQO7jXULwQ5gBBu0qW9FfPJ9Y4bWy1QyQN7N4ZI5myOQmgLDm0kA/wDbC9BeJFr8tmV+U0/x0b1vssVuh2B4xjkAF5jxi0g8CBguda0WKSG0mrcHAOcB5vez+PyC6pobQToL4Mt9t5wbUd6gNMXbctuPFRmt9kb3HEZgjwIcFRi5QeyyfGS0U3VfQYtbnjtLhaygeWEjE4A02jvEeOygjNcbI+zzNszhQRxtII815f3nSN4VAZ/09hqB0PVTREYsrS4VL3Oce8RhW63Lg0Hqqt5RIKNsxJJLX2mME4m61zC0E8Lx8StOPM3k4lGXCv0uSKI4LyvbgvC2mAIiIcCIiAIiIAiIgCIiAIiICyaqvwkbufG7xvNP0W9PA6VzgTvHJV3QttEMocfMIuu/CdvQgHorlJDjeGIO75qPG2asck40YtWIyYiNoleDzwP1U9LopzgHNPeHRR+iY7rZsKd9jurgQf6B4qdsdoyXMs2kTw4k+yPteghaA0SsNRk5uBHXapLV7QMVkcZGhxkIpecQSAcwKZdMVIxSLIXrDKUpPbNahGK6NC32RrzW6KqQ0NAGUC1pZgM1taPkrkpv8TiVsmJG1WOSz3hTaMiskb96ziiq4q7It0VLSWqTJZDIQ4OOZYR3jvIIz4qR0VowwRmKJtxhNXEVDnE4Vc4kk4YYUU4V4e9Sp/Tl36MUUIY0NGQVd1rhLzBGPOe8gcMMT0rXorA6RaVrivSsJHmxmmHrnH4MHija4nVF2RMNjMD2hpN3AU2UyVN8pkgrZ2ba2h55Oc0N/pPgujTAAGR5DWtaTU4UAGJO4LiutOlv2q0ySitzBsY3Mbl44u9pR8XE+dnfLy/x8fZDOWNenFeV6Z5QREQ4EREAREQBERAEREAREQH0KyavaaDQIZD3fQcdn3Tw3KtL00oSTo6bo9wPatBzjve65v8AuKzWSahoqXqlbiy1QtLjceTGQSafaNLW4bO8WnorU+rXHmqZpvs2YZpFjgmWxfUNZJlIsfVZeOzY5qiM0tbA13AfNY9CaxtJIDhgVltujXPrhVfLBquSbxwApln4qzMv49Mqw5KntE/DrHF2gjc5t8jKuKnoZKgHYtCxaFjABuNqaVN0Amm87VJlgAosmNT9lmWcH+J5dIsEki9SLWkK65M5BI+h2K+2m0MaTVwFGivhX6rHCKuA4ri+tOmHWi1Wl7XuMTpXXRfN0sb3WGlaYtaCrMeNzVIjmyKD2Tuvmt4nrZoHfY177x+8I9Efc47eWdEc5HuWNb4QUVSPNyZHN2wURFMrCIiAIiIAiIgCIiAIiIAiIgCIiAyMduwPDNdAgtotMTJ8LxwkA2SDzsNgODhwcFzwFSug9KGB+NTE6geOWThxFTzBI24RkvZZCVF1s81FK2e0KCJBAc0gtIqCMiN4WazzUKqkr2aVOtEtb9LthAqcTkFoWbWdwd57h4geCkZZasBDGkgZ0FfFebJpa6e9FJXgwn5LFkba2ej46h8N6y6xyCh+0LeLHkeNMFP2HSjJm1aeY2g8VF2TSbn4Bj2jeWkfNSQoaG6L1M6Cp5naqIyr2M6g+lTM8j1rSPX171G6T0lHBG6WR1GN8SdgA2k7lLbZStbI/XLTf7LZX3TSaUOjjpmKijn+yD4lq464qS1g0w+1zOldgMmNrg1oyHPaTvPJRRK9PDj4RPOzZOcrPjiviIrigIiIAiIgCIiAIiIAiIgCIiAIiIAiIgC9NK8oEOlh1VtTu07EnuObI4Dc5rS6o3VoVYqbVU9WD/xcXKX/ANUitMhINQucbLIy0TWi5wcCrHZoGlUOK1XTUYHcp/R+nG0AJoeKwZ4pbN2GTaotbLM0I+gUXHpmM+kPFZRaDJllv/JZLRdxfsyOcXGgzXK/KDa3uts0JeTHEYwwbAXRMc487zndMF1qCMBcb14dXSNr/wCcR7oDfotniRVtmbynpIgHLwvTl5W8wBERDgREQBERAEREAREQBERAEREAREQBERAEREBM6psJtcfBsxPSJ/8AZWmUKF1Is/enmNaNjDB+KR1fg1h95TxYSVJdWSXw03sXqzWF7zRtfEqQgsBJxwCnbDA1ooAsXk5Ulo3ePid2zzorQrWULu87jiFNsavEKzNC83bNrM0QXF9eGXdI2wfznH3gHfVdqjXK/KpYOzt3agd2eKN9dl5gETh4MafaXoeL0YPJ9FJcvCyOCxraYgiIhwIiIAiIgCIiAIvqID4iIgCIiAIiIAiKS0PoO02t1IIXvoaFwADG/ieaNHKtUBGrYsFjknkbFE0vkOTW58zuG8nALpmrXk+ihJdazFJNd7kYLjE0731p2h4ebzzFmtcYjYY4mhgyNGhpPOgFOSnwrvR1K1oqNl0e2ywsgBBcCXSOGTpHUBpwADWjlXatvRrRVerVZ3L7o5lHKOeuGi3Anz2b741mgWcw1CxMbQrxpu0etFUbsS2GLWiK2IBUqEUJGy0KL1x1cOkLLcZT9oiJfFUgB1RR8ZJyvADq1uyqmGMWzHgt+BUZMu1R+b7VZ3RvdG9pa9pLXNcCHNI2EHIrXLV+ktL6PgtLCJI2F9KBzo2Prua5rhRw4eFFQdZ/Jc9wbNYgypbWSB0lLr6funOwIrXBxFNh2DYkYZRo5SQvikNJ6Lnsz+znikjfj3XtLa02iuDhxFQtJzUIHhERAEREAREQBERAEREAREQBCURAdZ1X1AsjGRzWhwtEjmtcGg/YCorSgxkz24HcroHhrQxjWtY0Ua1oDWgbgBgFw3V/Wi02MgMdeirjG4m77J9FdL0DrhZbXRt65L6jyAehyKvhKNaIuyctEd/gRkdqwGQjCQYbHD89nVbYXq6jd6Yjp2iNmsV7FpBHQFazLKWnEEHiKKX/AGUZirTw/LJew2Qeq4eHwxCzzhfRqhlp7R8skdRRYprLQrajlI9AjkK/JZDaGnMHwIWOXjmpeQiOu0W7YI64r0WRnYT4rYiwFGsP65rkPHoT8hNGQBeru/BAHHcPivQYOfNaY40jO8jZ9ad3iVmjdRY16CvjoqZ7tcEU7DFNHHJGc2vY1zedDkeK5zrj5MoBFLaLJIYyxjnuikcXRlrQXOuvPeYaV86o2d3NWnWHWyx2EfbSjtKVETaOkPs7BxNAuR63a92m33ox9lZj+7aal2OHaO28hhzzRtEGVQlfERRIhERAEREAREQBERAEREAREQBERAWHQuuVss1Bf7SMejJU+Dsx8VetEeUKyS0Et6F/3sWe8PrRckRdUmKP0RZbTHKA5j2uadrXAj4LYAX51stqkiN6OR7Hb2uLfkrFYNftIRUBkbIP5jAT4toV2ySZ2xoXsBcusnlVkH+pZGniyUj4Fv1Ugzyr2fbZbR0MR+bgoslaOigL0AudnysWbZZrT17Ef/a07V5Wj+7sfV81PgGn5qJy0dSXx7w0EkgAZkmgC4pbvKXpCSoYYohsuR1d4vJHwVY0jpW0Wg1mmlk4OeS3o3IdAujkjtOmfKFo+zVAk7aQV7sVHCo2F/mjxque6e8pFttFWxEQRn1DWQjjIcvZA5qmIhxyZ9c4kkkkkmpJJJJ3knMr4iLpEIiIAiIgCIiAIiIAiIgCIiAL6iIAV8REAX0IiAFfERAEREAREQH1fERAEREAREQAoiIAiIgCIiA+oiID/9k="
+                alt="Profile">
+            <h2>User: John</h2>
+            <p>Web Developer</p>
+        </div>
+
+        <!-- Post Box -->
+        <div class="post-box">
+            <textarea id="postInput" placeholder="What's on your mind?"></textarea>
+            <button onclick="addPost()">Post</button>
+        </div>
+
+        <!-- Posts -->
+        <div id="posts"></div>
+
+    </div>
+
+    <script>
+
+        function addPost() {
+
+            let postInput = document.getElementById("postInput");
+
+            let postText = postInput.value;
+
+            if (postText == "") {
+                alert("Enter something!");
+                return;
+            }
+
+            let posts = document.getElementById("posts");
+
+            let postDiv = document.createElement("div");
+
+            postDiv.className = "post";
+
+            postDiv.innerHTML = `
+                <h3>John</h3>
+
+                <p>${postText}</p>
+
+                <div class="actions">
+                    <button onclick="likePost(this)">Like</button>
+
+                    <button onclick="commentPost()">Comment</button>
+
+                    <button onclick="followUser()">Follow</button>
+                </div>
+            `;
+
+            posts.prepend(postDiv);
+
+            postInput.value = "";
+        }
+
+        function likePost(button) {
+
+            if (button.innerHTML == "Like") {
+                button.innerHTML = "Liked";
+            }
+            else {
+                button.innerHTML = "Like";
+            }
+        }
+
+        function commentPost() {
+
+            let comment = prompt("Enter your comment:");
+
+            if (comment != "") {
+                alert("Comment Added: " + comment);
+            }
+        }
+
+        function followUser() {
+
+            alert("You followed John!");
+        }
+
+    </script>
+
+</body>
+
+</html>
