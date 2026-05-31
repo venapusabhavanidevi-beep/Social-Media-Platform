@@ -19,19 +19,20 @@ HTML was used to structure the web pages, CSS was used to design an attractive a
 This task helped improve my knowledge of frontend development, responsive design, user interface creation, and social networking concepts. It also provided practical experience in building interactive web applications.
 
 Tools Used:
-HTML (HyperText Markup Language)
-CSS (Cascading Style Sheets)
-JavaScript
-Git & GitHub (optional)
+HTML (HyperText Markup Language),
+CSS (Cascading Style Sheets),
+JavaScript,
+Git & GitHub (optional).
+
 Editor/Platform Used:
 The project was developed using Visual Studio Code (VS Code). The application was tested in Google Chrome to verify responsiveness, user interactions, and overall functionality.
 
 Applicability of the Task:
-Social Networking Websites
-Community Platforms
-Online Discussion Forums
-User Engagement Systems
-Frontend Web Development Projects
+Social Networking Websites,
+Community Platforms,
+Online Discussion Forums,
+User Engagement Systems,
+Frontend Web Development Projects.
 
 OUTPUT:
 <img width="1911" height="815" alt="Image" src="https://github.com/user-attachments/assets/71d1ffba-ee62-4644-849b-8e7e7311c0ef" />
